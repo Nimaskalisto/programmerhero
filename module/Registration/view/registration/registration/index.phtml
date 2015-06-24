@@ -1,0 +1,24 @@
+<?php
+
+$title = 'Registration';
+$this->headTitle();
+
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('application', array('action' => 'index')) ?>">Home</a>
+</p>
+
+<?php 
+    $form->setAttribute('action', $this->url('registration',array('action' => 'index')));
+    $form->prepare();
+    
+    echo $this->form()->openTag($form);
+    echo $this->formRow($form->get('nick'));
+    echo $this->formRow($form->get('password'));
+    echo $this->formRow($form->get('email'));
+    echo $this->formRow($form->get('name'));
+    echo $this->formRow($form->get('surname'));
+    echo $this->formSubmit($form->get('submit'));
+    echo $this->form()->closeTag();
+?>
